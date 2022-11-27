@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Nov 25 18:37:10 2022
+
+@author: Fantasma
+"""
+
+from sqlalchemy import create_engine
+import pandas as pd
+
+db="pagos"
+table="ordenes_pago"
+#aqui va la ruta del excel 
+path="C:/"
+ 
+#aqui va las credenciales de la base de datos en la parte que dice claves van usuario y contraseña coomo
+#ejemplo usuario:contraseñay de ahi el @
+url="mysql+mysqlconnector://claves@localhost/"
+
+engine = create_engine(url + db, echo = False)
+
+df=pd.read_Excel(patch)
+df.to_sql(name= table, con = engine, if_exist= 'append', index= False)
